@@ -25,7 +25,9 @@ class Employees extends Model
         $empModel->phone = $data['phone'];
         $empModel->gender = $data['gender'];
         $empModel->department = $data['department'];
-        $empModel->image = $data['image'] ? $data['image']->getClientOriginalName() : "";
+        if ($data['image']) {
+            $empModel->image = $data['image']->getClientOriginalName();
+        }
 
         if ($empModel->save()) {
             return $empModel;

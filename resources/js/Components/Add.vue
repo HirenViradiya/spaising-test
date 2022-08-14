@@ -232,7 +232,7 @@ export default {
                     this.empData.address = response.address;
                     this.empData.gender = response.gender;
                     this.empData.department = response.department;
-                    this.empData.profileImage = response.image;
+                    // this.empData.profileImage = response.image;
                     this.editImage = response.image;
                 }
             });
@@ -311,5 +311,10 @@ export default {
     border-radius: 10px !important;
     border-radius: 0.25rem !important;
     box-shadow: 2px 2px 5px rgb(0 0 0 / 50%);
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }
 </style>

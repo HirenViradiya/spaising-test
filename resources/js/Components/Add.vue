@@ -205,6 +205,7 @@ export default {
         };
     },
     mounted() {
+        console.clear();
         this.id = this.$route.params.id;
         if (this.id) {
             this.editEmp(this.id);
@@ -269,7 +270,6 @@ export default {
             });
         },
         update() {
-            console.log("this.empData", this.empData);
             let data = {
                 id: this.id,
                 empData: this.empData,
@@ -312,9 +312,9 @@ export default {
     border-radius: 0.25rem !important;
     box-shadow: 2px 2px 5px rgb(0 0 0 / 50%);
 }
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 </style>

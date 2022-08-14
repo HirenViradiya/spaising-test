@@ -18,13 +18,8 @@ Vue.use(VeeValidate);
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 
-//Vue.component("app", require("./Components/App.vue").default);
-
 const app = new Vue({
     el: "#app",
-    // components :{
-    //     info : App
-    // },
     router,
     store,
     render: (h) => h(App),

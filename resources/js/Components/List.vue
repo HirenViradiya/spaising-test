@@ -16,8 +16,11 @@
                 </tr>
             </thead>
             <tbody v-if="empList?.length">
-                <tr v-for="employee in empList" v-bind:key="employee.id">
-                    <th scope="row">{{ `${employee.id}` }}</th>
+                <tr
+                    v-for="(employee, index) in empList"
+                    v-bind:key="employee.id"
+                >
+                    <th scope="row">{{ `${index + 1}` }}</th>
                     <td>{{ `${employee.first_name}` }}</td>
                     <td>{{ `${employee.last_name}` }}</td>
                     <td>{{ `${employee.email}` }}</td>
@@ -54,6 +57,9 @@
                 </tr>
             </tbody>
         </table>
+        <div class="text-center" v-if="apiLoading">
+            <b-spinner variant="primary" label="Text Centered"></b-spinner>
+        </div>
     </div>
 </template>
 
@@ -64,7 +70,7 @@ export default {
     name: "App",
     data() {
         return {
-            addShow: false,
+            apiLoading: false,
             empList: [],
         };
     },
@@ -74,9 +80,15 @@ export default {
             deleteEmployee: "employee/deleteEmployee",
         }),
         employeeListing() {
-            this.employeeList().then((response) => {
-                this.empList = response;
-            });
+            this.apiLoading = true;
+            this.employeeList()
+                .then((response) => {
+                    this.empList = response;
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+                .finally(() => (this.apiLoading = false));
         },
         deleteEmp(id) {
             this.deleteEmployee(id).then((response) => {
@@ -97,6 +109,7 @@ export default {
         },
     },
     mounted() {
+        console.clear();
         this.employeeListing();
     },
 };

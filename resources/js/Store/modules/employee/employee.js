@@ -108,7 +108,6 @@ const actions = {
         const apiResponse = await axios
             .post(url, formData)
             .then((response) => {
-                console.log("response", response);
                 const apiData = response.data;
                 return apiData;
             })
@@ -125,7 +124,6 @@ const actions = {
      */
     async updateEmployeeData({ commit, state }, data) {
         let empData = data.empData;
-        console.log("empData",empData);
         let formData = new FormData();
         formData.append("id", data.id);
         formData.append("first_name", empData.firstName);
@@ -143,7 +141,6 @@ const actions = {
             .post(url, formData)
             .then((response) => {
                 const apiData = response.data;
-                console.log("apiData", apiData);
                 if (apiData.status_code == 200) {
                     return apiData;
                 }

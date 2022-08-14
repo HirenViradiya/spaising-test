@@ -4,4 +4,4 @@
 4) Run php artisan key:generate command.
 5) Run php artisan migrate command.
 6) Run npm install command.
-5) Run php artisan serve
+7) Run php artisan serve
